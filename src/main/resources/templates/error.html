@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error: Pizza4Ever </title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>Some error</h3>
+        <a th:href="@{/pizza4Ever}"> Back to view Pizza4Ever</a>
+
+        <h1 th:text=" 'Error: ' + ${error}" ></h1>
+        <p th:text="'Status: ' + ${status}"></p>
+        <p th:text="'path: ' + ${path}"></p>
+        <p th:text="'tarce: ' +  ${tarce}"></p>
+    </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Dictionary</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#myPage">Dictionary</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#myPage">HOME</a></li>
+            <li><a href="#band">Somthing</a></li>
+            
+            <li><a href="#contact">CONTACT</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">A</a></li>
+                <li><a href="#">B</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <!--Ende nav-->
+
+
+    <!--Ende: resarch & Result -->
+    <div class="container">
+        <div class="col-md-8">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="searchFeld" name="searchFeld" placeholder="Search" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <button class="btn pull-right" type="submit">search</button>
+              </div>
+            </div>
+        </div>    
+
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr th:each="word: ${words}">
+                    <th th:text="${word.word}"></th>
+                    
+                </tr>
+
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    <!--Ende: resarch & Result -->
+
+    <!--ADD new Word into Dictionary-->
+    <form th:action="@{/add}" method="POST">
+      <div id="contact" class="container">
+        <h3 class="text-center">ADD Content</h3>
+        <p class="text-center"><em> add a new Word !</em></p>
+      
+        <div class="row">
+          <div class="col-md-4">
+            <p>help as to improve the Dictionary</p>
+            <p>please add the new word  </p>
+            
+          </div>
+          
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <input class="form-control" id="word" name="word" placeholder="example: Love" type="text" required>
+              </div>
+              <div class="col-sm-4 form-group">
+                <input class="form-control" id="mean" name="mean" placeholder="example: Liebe" type="text" required>
+              </div>
+              <div class="col-md-4 form-group">
+                <input type="submit" class="btn pull-right" value="add" />
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </form>
+    <!--Ende:ADD new Word into Dictionary-->
+  
+    
+<!-- Container (Contact Section) -->
+<div id="contact" class="container">
+    <h3 class="text-center">Contact</h3>
+    <p class="text-center"><em>We love our fans!</em></p>
+  
+    <div class="row">
+      <div class="col-md-4">
+        <p>Fan? Drop a note.</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
+        <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
+        <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          </div>
+        </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+        <br>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <button class="btn pull-right" type="submit">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link rel="stylesheet" href="stylsheet.css">
+
+</body>
+
+</html>
